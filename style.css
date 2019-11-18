@@ -1,7 +1,16 @@
 html {
   background: grey;
 }
-
+#chart {
+ position: relative;
+ text-align: right;
+}
+.project {
+ height: 100vh;
+ width: 100vw;
+ align-items: center;
+ justify-content: center;
+}
 #title {
  text-align: center;
 }
@@ -19,18 +28,18 @@ html {
 
 @media only screen and (max-width: 1025px) {
  #chart {
-   transform: scale(0.50) translateX(-75%);
+   transform: scale(0.50) translateX(-30%);
  }
  #tooltip {
-   transform: translateX(75%);
+   transform: translateX(30%);
  }
 }
 
 @media only screen and (max-width: 500px) {
  #chart {
-   transform: scale(0.30) translateX(-200%);
+   transform: scale(0.30) translateX(-140%);
  }
  #tooltip {
-   transform: translateX(200%);
+   transform: translateX(140%);
  }
 }
