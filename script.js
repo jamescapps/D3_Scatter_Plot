@@ -56,26 +56,26 @@ fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
       svg.append("g")
          .call(xAxis)
          .attr('id', 'x-axis')
-         .attr('transform', 'translate(140, 440)')
+         .attr('transform', 'translate(490, 440)')
         //.attr("class", "axisWhite")
   
       svg.append("g")
          .call(yAxis)
          .attr('id', 'y-axis')
-         .attr('transform', 'translate(140, 40)')
+         .attr('transform', 'translate(490, 40)')
         //.attr("class", "axisWhite")
   
       svg.append('text')
          .attr('transform', 'rotate(-90)')
          .attr('x', -300)
-         .attr('y', 50)
+         .attr('y', 350)
          .text('Time (in minutes)')
     
       svg.selectAll(".dot")
          .data(data)
          .enter().append("circle")
          .attr("class", "dot")
-         .attr('transform', 'translate(140, 40)')
+         .attr('transform', 'translate(490, 40)')
          .attr("r", 6)
          .attr("cx", function(d) {
              return xScale(d.Year)
@@ -98,9 +98,11 @@ fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
            tooltip.html(d.Name + ": " + d.Nationality + "<br/>"
                   + "Year: " +  d.Year + ", Time: " + timeFormat(d.Time) 
                   + (d.Doping?"<br/><br/>" + d.Doping:""))
-                  .style("left", (d3.event.pageX) + "px")
-                  .style("top", (d3.event.pageY - 28) + "px");
+                  .style("left", (d3.event.pageX + 20) + "px")
+                  .style("top", (d3.event.pageY - 10) + "px");
         })
+  //(d3.event.pageX  - 30)
+  //(d3.event.pageY - 170)
        .on("mouseout", function(d) {
            tooltip.style("opacity", 0);
         });
@@ -115,13 +117,13 @@ fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
                             return "translate(0," + (height/2 - i * 25) + ")"
                         })
           legend.append("rect")
-                      .attr("x", width - 600)
+                      .attr("x", width - 250)
                       .attr("y", 25)
                       .attr("width", 20)
                       .attr("height", 15)
                       .style("fill", color)
           legend.append("text")
-                      .attr("x", width - 610)
+                      .attr("x", width - 260)
                       .attr("y", 38)
                       .style("text-anchor", "end")
                       .text(function(d) {

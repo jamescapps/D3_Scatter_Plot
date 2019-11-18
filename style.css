@@ -1,34 +1,36 @@
 html {
-    background: grey;
- }
- 
- #title {
-   text-align: center;
- }
- 
+  background: grey;
+}
+
+#title {
+ text-align: center;
+}
+
+#tooltip {
+ align-items: center;
+ justify-content: center;
+ position: absolute;
+ text-align: left;
+ width: 225px;
+ height: 100px;
+ color: black;
+ pointer-events: none;
+}
+
+@media only screen and (max-width: 1025px) {
  #chart {
-     transform: translateX(16%);
-   }
- 
+   transform: scale(0.50) translateX(-75%);
+ }
  #tooltip {
-   align-items: center;
-   justify-content: center;
-   position: absolute;
-   text-align: left;
-   width: 225px;
-   height: 100px;
-   color: black;
-   pointer-events: none;
+   transform: translateX(75%);
  }
- 
- @media only screen and (max-width: 1025px) {
-   #chart {
-     transform: scale(0.50) translateX(-15%);
-   }
+}
+
+@media only screen and (max-width: 500px) {
+ #chart {
+   transform: scale(0.30) translateX(-210%);
  }
- 
- @media only screen and (max-width: 500px) {
-   #chart {
-     transform: scale(0.30) translateX(-120%);
-   }
+ #tooltip {
+   transform: translateX(200%);
  }
+}
