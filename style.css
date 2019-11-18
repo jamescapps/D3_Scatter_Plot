@@ -28,7 +28,7 @@ html {
 
 @media only screen and (max-width: 500px) {
  #chart {
-   transform: scale(0.30) translateX(-210%);
+   transform: scale(0.30) translateX(-200%);
  }
  #tooltip {
    transform: translateX(200%);
