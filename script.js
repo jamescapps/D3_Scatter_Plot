@@ -1,9 +1,9 @@
 //Receives the data to be used.
-fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json')
+fetch("https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json")
   .then(response => response.json())
   .then(data => {
       data.forEach(function(d) {
-        let parsedTime = d.Time.split(':');
+        let parsedTime = d.Time.split(":");
         d.Time = new Date(0000, 0, 1, 0, parsedTime[0], parsedTime[1]);
       });
   
@@ -13,10 +13,10 @@ fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
       let color = d3.scaleOrdinal()
                     .range(["white", "blue"])
       
-      let svg =  d3.select('#chart')
-                   .append('svg')
-                   .attr('width', width + 200)
-                   .attr('height', height + 60)
+      let svg =  d3.select("#chart")
+                   .append("svg")
+                   .attr("width", width + 200)
+                   .attr("height", height + 60)
                    
       let tooltip = d3.select("#chart")
                       .append("div")
@@ -55,25 +55,25 @@ fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
   
       svg.append("g")
          .call(xAxis)
-         .attr('id', 'x-axis')
-         .attr('transform', 'translate(240, 440)')
+         .attr("id", "x-axis")
+         .attr("transform", "translate(240, 440)")
   
       svg.append("g")
          .call(yAxis)
-         .attr('id', 'y-axis')
-         .attr('transform', 'translate(240, 40)')
+         .attr("id", "y-axis")
+         .attr("transform", "translate(240, 40)")
   
-      svg.append('text')
-         .attr('transform', 'rotate(-90)')
-         .attr('x', -300)
-         .attr('y', 140)
-         .text('Time (in minutes)')
+      svg.append("text")
+         .attr("transform", "rotate(-90)")
+         .attr("x", -300)
+         .attr("y", 140)
+         .text("Time (in minutes)")
     
       svg.selectAll(".dot")
          .data(data)
          .enter().append("circle")
          .attr("class", "dot")
-         .attr('transform', 'translate(240, 40)')
+         .attr("transform", "translate(240, 40)")
          .attr("r", 6)
          .attr("cx", function(d) {
              return xScale(d.Year)
